@@ -1,6 +1,7 @@
 <?php
 namespace Webdock\Api;
 use Webdock\BaseApi;
+use Webdock\Entity\ServerActionSnapshotModel;
 
 class ServerSnapshot extends BaseApi
 {
@@ -28,5 +29,18 @@ class ServerSnapshot extends BaseApi
             $snapshotId,
         ]);
         return $this->execute($endpoint, 'DELETE', []);
+    }
+
+    public function create($serverSlug, $snapshotName)
+    {
+
+        $endpoint = sprintf($this->endpoint, $serverSlug);
+        $model = new ServerActionSnapshotModel([
+            'name' => $snapshotName
+        ]);
+        $params = ['form_params' => $model->toArray()];
+
+        return $this->execute($endpoint, 'POST', $params);
+
     }
 }
