@@ -5,6 +5,10 @@ use Webdock\Client as WebdockClient;
 use GuzzleHttp\Psr7\Response;
 use Webdock\Tests\Helper;
 
+/**
+ * 
+ * @testdox Ping
+ */
 class PingTest extends TestCase
 {
     /**

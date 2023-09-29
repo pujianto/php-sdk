@@ -9,7 +9,7 @@ use Webdock\Tests\Helper;
 
 /**
  * 
- * @testdix Possible server profiles
+ * @testdox Possible server profiles
  * 
  */
 class ProfileTest extends TestCase
