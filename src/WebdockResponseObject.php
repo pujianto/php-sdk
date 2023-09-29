@@ -8,10 +8,13 @@ class WebdockResponseObject
 {
     private $headers = null;
     private $response = null;
+    private $statusCode = null;
 
     public function __construct(ResponseInterface $response)
     {
         $this->headers = new WebdockHeaderObject($response);
+        $this->statusCode = $response->getStatusCode();
+
         $body = json_decode($response->getBody()->getContents());
         if (is_array($body)) {
             $this->response = new WebdockCollection($body);
@@ -24,6 +27,11 @@ class WebdockResponseObject
     public function getHeaders()
     {
         return $this->headers;
+    }
+
+    public function getStatusCode()
+    {
+        return $this->statusCode;
     }
 
     public function getApiStats()
