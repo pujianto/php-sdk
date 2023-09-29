@@ -1,4 +1,5 @@
 <?php
+
 namespace Webdock;
 
 class WebdockObject
@@ -22,6 +23,6 @@ class WebdockObject
 
     public function toArray()
     {
-        return $this->properties;
+        return json_decode(json_encode($this->properties), true);
     }
 }
